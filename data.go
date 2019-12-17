@@ -18,12 +18,12 @@ type responseObject struct {
 }
 
 type updateDataObject struct {
-	Log         int
-	Temperature real
+	Log         string
+	Temperature string
 }
 
 type readDataObject struct {
-	Temperature real
+	Temperature string
 }
 
 //Function Helper (pembuatan tabel dan kolom database)
@@ -33,7 +33,7 @@ func initDatabase(database *sql.DB) *sql.Tx {
 		log.Println(err2)
 	}
 
-	stmt, err3 := tx.Prepare("CREATE TABLE IF NOT EXISTS data (log INTEGER PRIMARY KEY, temperature REAL)")
+	stmt, err3 := tx.Prepare("CREATE TABLE IF NOT EXISTS data (log TEXT PRIMARY KEY, temperature TEXT)")
 	if err3 != nil {
 		log.Println(err3)
 	}
@@ -58,9 +58,9 @@ func updateResponseParser(request *http.Request) *updateDataObject {
 	return &m
 }
 
-var cTemperature real = 0.0
+var cTemperature string = ""
 
-func updateDataAndroid(aTemperature real) {
+func updateDataAndroid(aTemperature string) {
 	if cTemperature != aTemperature {
 		client := &http.Client{}
 		postData := []byte("{\"to\": \"/topics/update\", \"data\": {\"message\": \"Server data is updated\"}}")
