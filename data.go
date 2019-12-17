@@ -18,12 +18,12 @@ type responseObject struct {
 }
 
 type updateDataObject struct {
-	Log         INTEGER
-	Temperature REAL
+	Log         int
+	Temperature real
 }
 
 type readDataObject struct {
-	Temperature REAL
+	Temperature real
 }
 
 //Function Helper (pembuatan tabel dan kolom database)
@@ -60,7 +60,7 @@ func updateResponseParser(request *http.Request) *updateDataObject {
 
 var cTemperature real = 0.0
 
-func updateDataAndroid(aTemperature REAL) {
+func updateDataAndroid(aTemperature real) {
 	if cTemperature != aTemperature {
 		client := &http.Client{}
 		postData := []byte("{\"to\": \"/topics/update\", \"data\": {\"message\": \"Server data is updated\"}}")
