@@ -69,7 +69,7 @@ func updateDataAndroid(aTemperature string) {
 			os.Exit(1)
 		}
 		req.Header.Add("Content-Type", "application/json")
-		req.Header.Add("Authorization", "key=AIzaSyBW8x9GQEJKygHUoKhc3kowNWGrvh6p4LI")
+		req.Header.Add("Authorization", "key=AIzaSyBjpyC3bPaCekMJy81Irf1TxsZAe7CYRP4")
 		resp, err := client.Do(req)
 		defer resp.Body.Close()
 
