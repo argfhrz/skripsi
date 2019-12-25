@@ -120,7 +120,7 @@ func createDataHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println(err1)
 	}
 	log.Println("Data dibuat5")
-	stmt.Exec(m.Log, m.Temperature)
+	stmt.Exec("fg", "tempi")
 	defer stmt.Close()
 
 	log.Println("Data dibuat6")
