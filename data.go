@@ -121,6 +121,8 @@ func createDataHandler(w http.ResponseWriter, r *http.Request) {
 
 	cTemperature = m.Temperature
 
+	updateDataAndroid(m.Temperature)
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 
@@ -130,7 +132,5 @@ func createDataHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println(err2)
 	}
 	w.Write(b)
-
-	updateDataAndroid(m.Temperature)
 
 }
