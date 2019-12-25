@@ -104,6 +104,7 @@ func createDataHandler(w http.ResponseWriter, r *http.Request) {
 
 	database, err0 := sql.Open("sqlite3", "./skripsi.db")
 	if err0 != nil {
+		log.Println("Step 0")
 		log.Println(err0)
 	}
 	tx := initDatabase(database)
@@ -112,6 +113,7 @@ func createDataHandler(w http.ResponseWriter, r *http.Request) {
 
 	stmt, err1 := tx.Prepare("INSERT INTO data (log, temperature) VALUES (?,?)")
 	if err1 != nil {
+		log.Println("Step 1")
 		log.Println(err1)
 	}
 	stmt.Exec(m.Log, m.Temperature)
@@ -125,6 +127,7 @@ func createDataHandler(w http.ResponseWriter, r *http.Request) {
 	m2 := responseObject{"Create data success"}
 	b, err2 := json.Marshal(m2)
 	if err2 != nil {
+		log.Println("Step 2")
 		log.Println(err2)
 	}
 	w.Write(b)
