@@ -83,7 +83,7 @@ func main() {
 	mux.HandleFunc("/createData", createDataHandler)
 	mux.HandleFunc("/readData", readDataHandler)
 
-	http.ListenAndServe(":1882", mux)
+	http.ListenAndServe(":8080", mux)
 }
 
 func readDataHandler(w http.ResponseWriter, r *http.Request) {
