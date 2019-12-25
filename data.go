@@ -77,12 +77,14 @@ func updateDataAndroid(aTemperature string) {
 }
 
 func main() {
+	log.Println("Mulai 1")
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/createData", createDataHandler)
 	mux.HandleFunc("/readData", readDataHandler)
 
 	http.ListenAndServe(":1882", mux)
+	log.Println("Mulai")
 }
 
 func readDataHandler(w http.ResponseWriter, r *http.Request) {
@@ -97,6 +99,7 @@ func readDataHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func createDataHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("Data dibuat")
 	m := updateResponseParser(r)
 
 	database, err0 := sql.Open("sqlite3", "./skripsi.db")
