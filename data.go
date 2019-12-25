@@ -84,7 +84,6 @@ func main() {
 	mux.HandleFunc("/readData", readDataHandler)
 
 	http.ListenAndServe(":1882", mux)
-	log.Println("Mulai")
 }
 
 func readDataHandler(w http.ResponseWriter, r *http.Request) {
