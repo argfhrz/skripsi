@@ -60,20 +60,17 @@ func updateResponseParser(request *http.Request) *updateDataObject {
 
 var cTemperature string = ""
 
-func updateDataAndroid(aTemperature string) {
-	if cTemperature != aTemperature {
-		client := &http.Client{}
-		postData := []byte("{\"to\": \"/topics/update\", \"data\": {\"message\": \"Server data is updated\"}}")
-		req, err := http.NewRequest("POST", "https://fcm.googleapis.com/fcm/send", bytes.NewReader(postData))
-		if err != nil {
-			os.Exit(1)
-		}
-		req.Header.Add("Content-Type", "application/json")
-		req.Header.Add("Authorization", "key=AIzaSyBjpyC3bPaCekMJy81Irf1TxsZAe7CYRP4")
-		resp, err := client.Do(req)
-		defer resp.Body.Close()
-
+func updateDataAndroid() {
+	client := &http.Client{}
+	postData := []byte("{\"to\": \"/topics/update\", \"data\": {\"message\": \"Server data is updated\"}}")
+	req, err := http.NewRequest("POST", "https://fcm.googleapis.com/fcm/send", bytes.NewReader(postData))
+	if err != nil {
+		os.Exit(1)
 	}
+	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Authorization", "key=AIzaSyBjpyC3bPaCekMJy81Irf1TxsZAe7CYRP4")
+	resp, err := client.Do(req)
+	defer resp.Body.Close()
 }
 
 func main() {
@@ -121,7 +118,7 @@ func createDataHandler(w http.ResponseWriter, r *http.Request) {
 
 	cTemperature = m.Temperature
 
-	updateDataAndroid(m.Temperature)
+	updateDataAndroid()
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
