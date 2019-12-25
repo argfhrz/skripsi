@@ -102,34 +102,41 @@ func createDataHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("Data dibuat")
 	m := updateResponseParser(r)
 
+	log.Println("Data dibuat2")
 	database, err0 := sql.Open("sqlite3", "./skripsi.db")
 	if err0 != nil {
 		log.Println("Step 0")
 		log.Println(err0)
 	}
+	log.Println("Data dibuat3")
 	tx := initDatabase(database)
 	defer database.Close()
 	defer tx.Commit()
 
+	log.Println("Data dibuat4")
 	stmt, err1 := tx.Prepare("INSERT INTO data (log, temperature) VALUES (?,?)")
 	if err1 != nil {
 		log.Println("Step 1")
 		log.Println(err1)
 	}
+	log.Println("Data dibuat5")
 	stmt.Exec(m.Log, m.Temperature)
 	defer stmt.Close()
 
+	log.Println("Data dibuat6")
 	cTemperature = m.Temperature
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 
+	log.Println("Data dibuat7")
 	m2 := responseObject{"Create data success"}
 	b, err2 := json.Marshal(m2)
 	if err2 != nil {
 		log.Println("Step 2")
 		log.Println(err2)
 	}
+	log.Println("Data dibuat8")
 	w.Write(b)
 
 	updateDataAndroid(m.Temperature)
