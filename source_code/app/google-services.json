@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "785668946287",
+    "firebase_url": "https://monitoring-fa56b.firebaseio.com",
+    "project_id": "monitoring-fa56b",
+    "storage_bucket": "monitoring-fa56b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785668946287:android:cbc688c9e6e23fc4fe509a",
+        "android_client_info": {
+          "package_name": "com.blogspot.fikriprayoga.www.microcontrollerbasedsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785668946287-jpsp57gal7g8p8tb2ckmpjv2r715a012.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blogspot.fikriprayoga.www.microcontrollerbasedsystem",
+            "certificate_hash": "9e05336c2271a93c92e04e9fc34d707ea7fb8a19"
+          }
+        },
+        {
+          "client_id": "785668946287-h4vjak1s5b3iaqt9vttc10cub4q88h7r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnWis7I76ggpNofQz0WK56jqeu2jY8XKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785668946287-h4vjak1s5b3iaqt9vttc10cub4q88h7r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
